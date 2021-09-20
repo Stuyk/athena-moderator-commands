@@ -18,19 +18,21 @@ Adds the much needed in-game commands for moderators and administrators.
 
 ### Download
 
-[Download the Archive](https://github.com/Stuyk/athena-moderator-commands/archive/refs/heads/master.zip)
+[Download the Archive](https://github.com/Stuyk/athena-moderator-commands/archive/refs/heads/main.zip)
+
+[Source Code](https://github.com/Stuyk/athena-moderator-commands)
 
 ### Move Folder
 
-Extract the top level folder `athena-moderator-commands` into `src/core/plugins`.
+Extract the top level folder `athena-moderator-commands-main` into `src/core/plugins`.
 
-Your final path should be `src/core/plugins/athena-moderator-commands`.
+Your final path should be `src/core/plugins/athena-moderator-commands-main`.
 
 See _usage_ to see how to import and use this plugin.
 
 ### Verify Installation
 
-Navigate to `src/core/plugins/athena-moderator-commands/index` and open the file.
+Navigate to `src/core/plugins/athena-moderator-commands-main/index` and open the file.
 
 Double check that the top-level imports are not underlined in **red**. If they are **red** then you installed this plugin wrong.
 
@@ -43,7 +45,7 @@ Modify `src/core/plugins/imports.ts` and append the following in your `filePaths
 What to Append:
 
 ```typescript
-'./athena-moderator-commands/index';
+'./athena-moderator-commands-main/index';
 ```
 
 Example:
@@ -53,7 +55,7 @@ const filePaths = [
     // GAMEMODE IMPORTS -- Remove what you don't want.
     './heistExample/index',
     // YOUR IMPORTS -- BELOW HERE
-    './athena-moderator-commands/index'
+    './athena-moderator-commands-main/index'
 ];
 ```
 
@@ -117,4 +119,4 @@ Also kicks the player out of their vehicle if they are in one.
 
 # Uninstalling
 
-Delete the folder in `src/core/plugins/athena-moderator-commands`.
+Delete the folder in `src/core/plugins/athena-moderator-commands-main`.
