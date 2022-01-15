@@ -2,11 +2,11 @@ import * as alt from 'alt-server';
 import { playerFuncs } from '../../../../server/extensions/extPlayer';
 export function handleInfoCmd(player: alt.Player, id: number) {
     const target = playerFuncs.get.findByUid(id);
-    if(!target || !target.valid) {
+    if (!target || !target.valid) {
         return;
     }
 
-    if(!target.accountData) {
+    if (!target.accountData) {
         playerFuncs.emit.notification(player, `Could not find account info for ${id}!`);
     }
 

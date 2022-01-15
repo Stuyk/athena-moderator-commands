@@ -4,15 +4,19 @@
 
 Adds the much needed in-game commands for moderators and administrators.
 
--   /apm - Admin Private Message (Send Directly to another Player)
--   /kick - Kick a Player
--   /ban - Ban a Player
--   /unban - Unban a Player
--   /info - Get Player Account Info
--   /tpto - Teleport to a Player
--   /tphere - Teleport a Player Here
--   /freeze - Freeze a Player
--   /unfreeze - Unfreeze a Player
+- /apm - Admin Private Message (Send Directly to another Player)
+- /kick ID Reason - Kick a Player
+- /ban ID Reason - Ban a Player
+- /unban - Unban a Player
+- /info ID - Get Player Account Info
+- /goto ID - Teleport to a Player
+- /gethere ID - Teleport a Player Here
+- /freeze ID - Freeze a Player
+- /unfreeze ID - Unfreeze a Player
+- /setdimension ID Dimension - Sets dimension of a player
+- /setinterior ID Interior - Sets interior of a player
+- /refillVehicle - Refills fuel of an vehicle by administrative power
+- /repairVehicle - Repairs an vehicle by administrative power
 
 # Installation
 
@@ -24,9 +28,9 @@ Adds the much needed in-game commands for moderators and administrators.
 
 ### Move Folder
 
-Extract the top level folder `athena-moderator-commands-main` into `src/core/plugins`.
+Extract the top level folder `athena-moderator-commands-main` into `src/core/server-plugins`.
 
-Your final path should be `src/core/plugins/athena-moderator-commands-main`.
+Your final path should be `src/core/server-plugins/athena-moderator-commands-main`.
 
 See _usage_ to see how to import and use this plugin.
 
@@ -45,17 +49,17 @@ Modify `src/core/plugins/imports.ts` and append the following in your `filePaths
 What to Append:
 
 ```typescript
-'./athena-moderator-commands-main/index';
+"./athena-moderator-commands-main/index";
 ```
 
 Example:
 
 ```typescript
 const filePaths = [
-    // GAMEMODE IMPORTS -- Remove what you don't want.
-    './heistExample/index',
-    // YOUR IMPORTS -- BELOW HERE
-    './athena-moderator-commands-main/index'
+  // GAMEMODE IMPORTS -- Remove what you don't want.
+  "./heistExample/index",
+  // YOUR IMPORTS -- BELOW HERE
+  "./athena-moderator-commands-main/index",
 ];
 ```
 
@@ -82,7 +86,7 @@ const filePaths = [
 ### Unban
 
 ```typescript
-/unban [discord id] [?...reason]
+/unban [discord id]
 ```
 
 ### Info
@@ -94,13 +98,13 @@ const filePaths = [
 ### Teleport to Player
 
 ```typescript
-/tpto [in-game id]
+/goto [in-game id]
 ```
 
 ### Teleport Player to You
 
 ```typescript
-/tphere [in-game id]
+/gethere [in-game id]
 ```
 
 ### Freeze Target
@@ -117,6 +121,30 @@ Also kicks the player out of their vehicle if they are in one.
 /unfreeze [in-game id]
 ```
 
+### Setdimension
+
+```typescript
+/setdimension [in-game id] [dimension]
+```
+
+### Setinterior
+
+```typescript
+/setinterior [in-game id] [interior]
+```
+
+### refillVehicle
+
+```typescript
+/refillVehicle - Only works in vehicles.
+```
+
+### repairVehicle
+
+```typescript
+/repairVehicle - Only works in vehicles.
+```
+
 # Uninstalling
 
-Delete the folder in `src/core/plugins/athena-moderator-commands-main`.
+Delete the folder in `src/core/server-plugins/athena-moderator-commands-main`.
