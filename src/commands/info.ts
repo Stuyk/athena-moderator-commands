@@ -1,21 +1,13 @@
 import * as alt from 'alt-server';
-import { playerFuncs } from '../../../server/extensions/Player';
-
-export default async function info(player: alt.Player, id: string) {
-    if (!player || !player.valid) {
+import { playerFuncs } from '../../../../server/extensions/extPlayer';
+export function handleInfoCmd(player: alt.Player, id: number) {
+    const target = playerFuncs.get.findByUid(id);
+    if(!target || !target.valid) {
         return;
     }
 
-    const target = alt.Player.all.find((p) => p.id.toString() === id);
-
-    if (!target) {
-        playerFuncs.emit.message(player, `Could not find account info for ${id}`);
-        return;
-    }
-
-    if (!target.accountData) {
-        playerFuncs.emit.message(player, `Could not find account info for ${id}`);
-        return;
+    if(!target.accountData) {
+        playerFuncs.emit.notification(player, `Could not find account info for ${id}!`);
     }
 
     const dataToSend = [];
