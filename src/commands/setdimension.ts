@@ -6,7 +6,7 @@ import * as charRef from '../../../../shared/interfaces/character';
 // Extends the player interface.
 declare module 'alt-server' {
     export interface Character extends Partial<charRef.Character> {
-        dimension: number;
+        dimension?: number;
     }
 }
 
